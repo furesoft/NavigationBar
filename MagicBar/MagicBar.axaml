@@ -7,7 +7,7 @@
         </Geometry>
     </Styles.Resources>
 
-    <Style Selector="Path.Arc">
+    <Style Selector="controls|MagicBar Path.Arc">
         <Setter Property="Data" Value="{StaticResource ArcData}" />
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
@@ -15,20 +15,27 @@
         <Setter Property="Margin" Value="-10 90 -10 -1" />
     </Style>
 
-    <Style Selector="Border.Bar">
+    <Style Selector="controls|MagicBar Border.Bar">
         <Setter Property="Background" Value="#DDDDDD" />
         <Setter Property="Margin" Value="0 40 0 0" />
         <Setter Property="CornerRadius" Value="10" />
     </Style>
 
-    <Style Selector="PathIcon.Icon">
+    <Style Selector="controls|MagicBar PathIcon.Icon">
         <Setter Property="Data" Value="{Binding $parent[ListBoxItem].Tag}" />
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Foreground" Value="#44333333" />
     </Style>
 
-    <Style Selector="Grid.Circle">
+    <Style Selector="controls|MagicBar TextBlock#name">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="controls|MagicBar Grid.Circle">
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="80" />
     </Style>
@@ -57,7 +64,7 @@
                     <Grid>
                         <Grid Margin="0 -83 0 0" HorizontalAlignment="Center" Name="PART_Circle"
                               Classes="Circle" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}">
-                            <Path Classes="Arc" Margin="0,0,0,0" />
+                            <Path Classes="Arc" />
                             <Ellipse Fill="#222222" />
                             <Ellipse Fill="CadetBlue" Margin="6" />
                         </Grid>
@@ -65,12 +72,7 @@
                         <StackPanel Spacing="5" Background="{TemplateBinding Background}" IsHitTestVisible="True"
                                     VerticalAlignment="Center">
                             <PathIcon Name="Icon" Classes="Icon" />
-                            <TextBlock Name="name"
-                                       Text="{TemplateBinding Content}"
-                                       Foreground="Black"
-                                       HorizontalAlignment="Center"
-                                       FontSize="14"
-                                       FontWeight="Bold" />
+                            <TextBlock Name="name" Text="{TemplateBinding Content}" />
                         </StackPanel>
                     </Grid>
                 </ControlTemplate>
