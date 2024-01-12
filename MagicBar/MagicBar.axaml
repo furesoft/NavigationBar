@@ -1,22 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="using:MagicBar">
-    <Design.PreviewWith>
-        <controls:MagicBar Width="500">
-            <controls:MagicBar.Resources>
-                <Geometry x:Key="icon">
-                    M480-120q-117 0-198.5-81.5T200-400q0-94 55.5-168.5T401-669q-20-5-39-14.5T328-708q-33-33-42.5-78.5T281-879q47-5 92.5 4.5T452-832q23 23 33.5 52t13.5 61q13-31 31.5-58.5T572-828q11-11 28-11t28 11q11 11 11 28t-11 28q-22 22-39 48.5T564-667q88 28 142 101.5T760-400q0 117-81.5 198.5T480-120Zm0-80q83 0 141.5-58.5T680-400q0-83-58.5-141.5T480-600q-83 0-141.5 58.5T280-400q0 83 58.5 141.5T480-200Zm0-200Z
-                </Geometry>
-            </controls:MagicBar.Resources>
-
-            <ListBoxItem Tag="{StaticResource icon}">1</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">2</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">3</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">4</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">5</ListBoxItem>
-        </controls:MagicBar>
-    </Design.PreviewWith>
-
     <Styles.Resources>
         <Geometry x:Key="ArcData">
             M0,0 L100,0 C95.167503,0 91.135628,3.4278221 90.203163,7.9846497 L90.152122,8.2704506 89.963921,9.1416779 C85.813438,27.384438 69.496498,41 50,41 30.5035,41 14.186564,27.384438 10.036079,9.1416779 L9.8478823,8.2704926 9.7968359,7.9846497 C8.8643732,3.4278221 4.8324914,0 0,0 z
@@ -42,40 +26,51 @@
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Foreground" Value="#44333333" />
-        <Setter Property="Margin" Value="0 40 0 0" />
-    </Style>
-
-    <Style Selector="TextBlock#name">
-        <Setter Property="Margin" Value="0 60 0 0" />
     </Style>
 
     <Style Selector="Grid.Circle">
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="80" />
-        <Setter Property="Canvas.Left" Value="-100" />
     </Style>
 
-    <Style Selector="ListBoxItem:selected PathIcon#Icon">
-        <Setter Property="Margin" Value="0 -80 0 0" />
+    <Style Selector="controls|MagicBar ListBoxItem">
+        <Setter Property="Width" Value="100" />
     </Style>
 
-    <Style Selector="ListBoxItem:selected TextBlock#name">
-        <Setter Property="Margin" Value="0 45 0 0" />
+    <Style Selector="controls|MagicBar ListBoxItem StackPanel:pointerover">
+        <Setter Property="Cursor" Value="Hand" />
     </Style>
 
-    <Style Selector="ListBoxItem">
+    <Style Selector="controls|MagicBar ListBoxItem:selected PathIcon#Icon">
+        <Setter Property="Margin" Value="0 -40 0 0" />
+    </Style>
+
+    <Style Selector="controls|MagicBar ListBoxItem:selected TextBlock#name">
+        <Setter Property="Margin" Value="0 20 0 0" />
+    </Style>
+
+    <Style Selector="controls|MagicBar ListBoxItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid Background="{TemplateBinding Background}" IsHitTestVisible="True">
-                        <PathIcon Name="Icon" Classes="Icon" />
-                        <TextBlock Name="name"
-                                   Text="{TemplateBinding Content}"
-                                   Foreground="Black"
-                                   HorizontalAlignment="Center"
-                                   FontSize="14"
-                                   FontWeight="Bold" />
+                    <Grid>
+                        <Grid Margin="0 -80 0 0" HorizontalAlignment="Center" x:Name="PART_Circle" Classes="Circle" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}">
+                            <Path Classes="Arc" Margin="0,0,0,0" />
+                            <Ellipse Fill="#222222" />
+                            <Ellipse Fill="CadetBlue" Margin="6" />
+                        </Grid>
+
+                        <StackPanel Spacing="5" Background="{TemplateBinding Background}" IsHitTestVisible="True"
+                                    VerticalAlignment="Center">
+                            <PathIcon Name="Icon" Classes="Icon" />
+                            <TextBlock Name="name"
+                                       Text="{TemplateBinding Content}"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Center"
+                                       FontSize="14"
+                                       FontWeight="Bold" />
+                        </StackPanel>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -89,20 +84,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid Background="{TemplateBinding Background}">
+                    <Grid Background="{TemplateBinding Background}" HorizontalAlignment="Center">
                         <Border Classes="Bar" />
-                        <Canvas Margin="20 0 20 0">
-                            <Grid x:Name="PART_Circle" Classes="Circle">
-                                <Path Classes="Arc" Margin="0,450,0,0" />
-                                <Ellipse Fill="#222222" />
-                                <Ellipse Fill="CadetBlue" Margin="6" />
-                            </Grid>
-                        </Canvas>
 
                         <ItemsPresenter Name="PART_Presenter" Margin="20 40 20 0">
                             <ItemsPresenter.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <UniformGrid Columns="5" />
+                                    <StackPanel Orientation="Horizontal" />
                                 </ItemsPanelTemplate>
                             </ItemsPresenter.ItemsPanel>
                         </ItemsPresenter>
