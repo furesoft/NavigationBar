@@ -33,6 +33,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Text" Value="{Binding $parent[controls:MagicBarItem].Title}" />
     </Style>
 
     <Style Selector="controls|MagicBar Grid.Circle">
@@ -48,6 +49,10 @@
         <Setter Property="Margin" Value="0 -40 0 0" />
     </Style>
 
+    <Style Selector="controls|MagicBar controls|MagicBarItem:selected PathIcon#IconPopupBottom">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
     <Style Selector="controls|MagicBar controls|MagicBarItem:selected TextBlock#name">
         <Setter Property="Margin" Value="0 20 0 0" />
     </Style>
@@ -59,17 +64,29 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Grid Margin="0 -83 0 0" HorizontalAlignment="Center" Name="PART_Circle"
-                              Classes="Circle" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}">
+                        <Popup Width="100" Height="100" IsOpen="{TemplateBinding IsSelected, Mode=TwoWay}" Topmost="False"
+                               Placement="Top" PlacementTarget="{Binding $parent[controls:MagicBarItem]}">
+                            <Grid HorizontalAlignment="Center" Margin="0 100 0 0"
+                                  Classes="Circle">
+                                <Path Classes="Arc" />
+                                <Ellipse Fill="#222222" />
+                                <Ellipse Fill="CadetBlue" Margin="6" />
+                                <PathIcon Name="IconPopup" Classes="Icon" />
+                            </Grid>
+                        </Popup>
+
+                        <Grid HorizontalAlignment="Center" Margin="0 -82 0 0" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}"
+                              Classes="Circle">
                             <Path Classes="Arc" />
                             <Ellipse Fill="#222222" />
                             <Ellipse Fill="CadetBlue" Margin="6" />
+                            <PathIcon Name="IconPopupBottom" Classes="Icon" />
                         </Grid>
 
                         <StackPanel Spacing="5" Background="{TemplateBinding Background}" IsHitTestVisible="True"
                                     VerticalAlignment="Center">
                             <PathIcon Name="Icon" Classes="Icon" />
-                            <TextBlock Name="name" Text="{TemplateBinding Title}" />
+                            <TextBlock Name="name" />
                         </StackPanel>
                     </Grid>
                 </ControlTemplate>
