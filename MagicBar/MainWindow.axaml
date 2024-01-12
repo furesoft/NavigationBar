@@ -12,14 +12,16 @@
         </Geometry>
     </Window.Resources>
 
-    <magicBar:MagicBar>
-        <ListBoxItem Tag="{StaticResource icon}">1</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">2</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">3</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">4</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">5</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">6</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">7</ListBoxItem>
-        <ListBoxItem Tag="{StaticResource icon}">8</ListBoxItem>
-    </magicBar:MagicBar>
+    <Grid>
+        <magicBar:MagicBar VerticalAlignment="Bottom" Margin="15">
+            <ListBoxItem Tag="{StaticResource icon}">1</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">2</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">3</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">4</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">5</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">6</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">7</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource icon}">8</ListBoxItem>
+        </magicBar:MagicBar>
+    </Grid>
 </Window>

@@ -55,7 +55,8 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Grid Margin="0 -80 0 0" HorizontalAlignment="Center" x:Name="PART_Circle" Classes="Circle" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}">
+                        <Grid Margin="0 -83 0 0" HorizontalAlignment="Center" Name="PART_Circle"
+                              Classes="Circle" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}">
                             <Path Classes="Arc" Margin="0,0,0,0" />
                             <Ellipse Fill="#222222" />
                             <Ellipse Fill="CadetBlue" Margin="6" />
