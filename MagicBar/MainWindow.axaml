@@ -7,21 +7,22 @@
         x:Class="MagicBar.MainWindow"
         Title="MagicBar">
     <Window.Resources>
-        <Geometry x:Key="icon">
-            M480-120q-117 0-198.5-81.5T200-400q0-94 55.5-168.5T401-669q-20-5-39-14.5T328-708q-33-33-42.5-78.5T281-879q47-5 92.5 4.5T452-832q23 23 33.5 52t13.5 61q13-31 31.5-58.5T572-828q11-11 28-11t28 11q11 11 11 28t-11 28q-22 22-39 48.5T564-667q88 28 142 101.5T760-400q0 117-81.5 198.5T480-120Zm0-80q83 0 141.5-58.5T680-400q0-83-58.5-141.5T480-600q-83 0-141.5 58.5T280-400q0 83 58.5 141.5T480-200Zm0-200Z
+        <Geometry x:Key="add">
+            M 14 8 H 8 V 14 H 6 V 8 H 0 V 6 H 6 V 0 H 8 V 6 H 14 V 8 Z
+        </Geometry>
+        <Geometry x:Key="delete">
+            M 14 8 H 0 V 6 H 14 V 8 Z
+        </Geometry>
+        <Geometry x:Key="rename">
+            M 12 12 L 8 16 H 18 V 12 H 12 M 9.06 3.19 L 0 12.25 V 16 H 3.75 L 12.81 6.94 L 9.06 3.19 M 15.71 4.04 C 16.1 3.65 16.1 3 15.71 2.63 L 13.37 0.29 C 13.17 0.09 12.92 0 12.66 0 C 12.41 0 12.15 0.1 11.96 0.29 L 10.13 2.12 L 13.88 5.87 L 15.71 4.04 Z
         </Geometry>
     </Window.Resources>
 
     <Grid>
         <magicBar:MagicBar VerticalAlignment="Bottom" Margin="15">
-            <ListBoxItem Tag="{StaticResource icon}">1</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">2</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">3</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">4</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">5</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">6</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">7</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource icon}">8</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource add}">Hinzufügen</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource delete}">Löschen</ListBoxItem>
+            <ListBoxItem Tag="{StaticResource rename}">Umbenennen</ListBoxItem>
         </magicBar:MagicBar>
     </Grid>
 </Window>
