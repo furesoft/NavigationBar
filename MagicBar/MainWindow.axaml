@@ -20,9 +20,9 @@
 
     <Grid>
         <magicBar:MagicBar VerticalAlignment="Bottom" Margin="15">
-            <ListBoxItem Tag="{StaticResource add}">Hinzufügen</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource delete}">Löschen</ListBoxItem>
-            <ListBoxItem Tag="{StaticResource rename}">Umbenennen</ListBoxItem>
+            <magicBar:MagicBarItem Icon="{StaticResource add}">Hinzufügen</magicBar:MagicBarItem>
+            <magicBar:MagicBarItem Icon="{StaticResource delete}">Löschen</magicBar:MagicBarItem>
+            <magicBar:MagicBarItem Icon="{StaticResource rename}">Umbenennen</magicBar:MagicBarItem>
         </magicBar:MagicBar>
     </Grid>
 </Window>

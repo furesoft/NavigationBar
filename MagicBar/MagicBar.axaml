@@ -22,7 +22,7 @@
     </Style>
 
     <Style Selector="controls|MagicBar PathIcon.Icon">
-        <Setter Property="Data" Value="{Binding $parent[ListBoxItem].Tag}" />
+        <Setter Property="Data" Value="{Binding $parent[controls:MagicBarItem].Icon}" />
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
         <Setter Property="Foreground" Value="#44333333" />
@@ -40,24 +40,21 @@
         <Setter Property="Height" Value="80" />
     </Style>
 
-    <Style Selector="controls|MagicBar ListBoxItem">
-        <Setter Property="Width" Value="100" />
-    </Style>
-
-    <Style Selector="controls|MagicBar ListBoxItem StackPanel:pointerover">
+    <Style Selector="controls|MagicBar controls|MagicBarItem StackPanel:pointerover">
         <Setter Property="Cursor" Value="Hand" />
     </Style>
 
-    <Style Selector="controls|MagicBar ListBoxItem:selected PathIcon#Icon">
+    <Style Selector="controls|MagicBar controls|MagicBarItem:selected PathIcon#Icon">
         <Setter Property="Margin" Value="0 -40 0 0" />
     </Style>
 
-    <Style Selector="controls|MagicBar ListBoxItem:selected TextBlock#name">
+    <Style Selector="controls|MagicBar controls|MagicBarItem:selected TextBlock#name">
         <Setter Property="Margin" Value="0 20 0 0" />
     </Style>
 
-    <Style Selector="controls|MagicBar ListBoxItem">
+    <Style Selector="controls|MagicBar controls|MagicBarItem">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Width" Value="100" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -72,7 +69,7 @@
                         <StackPanel Spacing="5" Background="{TemplateBinding Background}" IsHitTestVisible="True"
                                     VerticalAlignment="Center">
                             <PathIcon Name="Icon" Classes="Icon" />
-                            <TextBlock Name="name" Text="{TemplateBinding Content}" />
+                            <TextBlock Name="name" Text="{TemplateBinding Title}" />
                         </StackPanel>
                     </Grid>
                 </ControlTemplate>
