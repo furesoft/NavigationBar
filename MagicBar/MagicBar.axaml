@@ -11,12 +11,12 @@
         <Setter Property="Data" Value="{StaticResource ArcData}" />
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="100" />
-        <Setter Property="Fill" Value="#222222" />
+        <Setter Property="Fill" Value="{DynamicResource SelectionCircleBorder}" />
         <Setter Property="Margin" Value="-10 90 -10 -1" />
     </Style>
 
     <Style Selector="controls|MagicBar Border.Bar">
-        <Setter Property="Background" Value="#DDDDDD" />
+        <Setter Property="Background" Value="{DynamicResource MagicBackground}" />
         <Setter Property="Margin" Value="0 40 0 0" />
         <Setter Property="CornerRadius" Value="10" />
     </Style>
@@ -25,11 +25,11 @@
         <Setter Property="Data" Value="{Binding $parent[controls:MagicBarItem].Icon}" />
         <Setter Property="Width" Value="40" />
         <Setter Property="Height" Value="40" />
-        <Setter Property="Foreground" Value="#44333333" />
+        <Setter Property="Foreground" Value="{DynamicResource IconForeground}" />
     </Style>
 
     <Style Selector="controls|MagicBar TextBlock#name">
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="{DynamicResource TitleForeground}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Bold" />
@@ -66,11 +66,11 @@
                     <Grid>
                         <Popup Width="100" Height="100" IsOpen="{TemplateBinding IsSelected, Mode=TwoWay}" Topmost="False"
                                Placement="Top" PlacementTarget="{Binding $parent[controls:MagicBarItem]}">
-                            <Grid HorizontalAlignment="Center" Margin="0 100 0 0"
+                            <Grid HorizontalAlignment="Center" Margin="1 100 0 0"
                                   Classes="Circle">
                                 <Path Classes="Arc" />
-                                <Ellipse Fill="#222222" />
-                                <Ellipse Fill="CadetBlue" Margin="6" />
+                                <Ellipse Fill="{DynamicResource SelectionCircleBorder}" />
+                                <Ellipse Fill="{DynamicResource SelectionCircleBackground}" Margin="6" />
                                 <PathIcon Name="IconPopup" Classes="Icon" />
                             </Grid>
                         </Popup>
@@ -78,8 +78,8 @@
                         <Grid HorizontalAlignment="Center" Margin="0 -82 0 0" IsVisible="{TemplateBinding IsSelected, Mode=TwoWay}"
                               Classes="Circle">
                             <Path Classes="Arc" />
-                            <Ellipse Fill="#222222" />
-                            <Ellipse Fill="CadetBlue" Margin="6" />
+                            <Ellipse Fill="{DynamicResource SelectionCircleBorder}" />
+                            <Ellipse Fill="{DynamicResource SelectionCircleBackground}" Margin="6" />
                             <PathIcon Name="IconPopupBottom" Classes="Icon" />
                         </Grid>
 

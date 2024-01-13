@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary x:Key="Dark">
+                <Brush x:Key="SelectionCircleBackground">#DDDDDD</Brush>
+                <Brush x:Key="SelectionCircleBorder">#222222</Brush>
+                <Brush x:Key="TitleForeground">#DDDDDD</Brush>
+                <Brush x:Key="IconForeground">#88666666</Brush>
+                <Brush x:Key="MagicBackground">#44333333</Brush>
+            </ResourceDictionary>
+
+            <ResourceDictionary x:Key="Default">
+                <Brush x:Key="SelectionCircleBackground">#5f9ea0</Brush>
+                <Brush x:Key="SelectionCircleBorder">#222222</Brush>
+                <Brush x:Key="TitleForeground">#000000</Brush>
+                <Brush x:Key="IconForeground">#44333333</Brush>
+                <Brush x:Key="MagicBackground">#DDDDDD</Brush>
+            </ResourceDictionary>
+        </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>
